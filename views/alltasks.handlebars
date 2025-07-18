@@ -1,10 +1,13 @@
 {{#each data}}
-  <div>
+<a href="/taskdescription/{{this.id}}">
+  <div class="taskCard">
     <form action="/deletetask/{{this.id}}" method="post">
       <h3>{{this.task}}</h3>
-      <input type="submit" value="deletar">
-      <input type="hidden" name="id" value="{{this.id}}">
-      <a href="/updatetask/{{this.id}}">editar</a>
+      <div>
+        <input type="submit" value="deletar">
+        <button><a href="/updatetask/{{this.id}}">editar</a></button>
+      </div>
     </form>
   </div>
+</a>
 {{/each}}

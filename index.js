@@ -39,6 +39,17 @@ app.get('/updatetask/:id', async (req, res) => {
 
 })
 
+app.get('/taskdescription/:id', async (req, res) => {
+  let { id } = req.params;
+
+  const data = await tarefas.findOne({
+    raw: true,
+    where:{id: id}
+  })
+
+  res.render('taskdescription', {data: data})
+})
+
 app.post('/addTask', async (req, res) => {
   const { task, description } = req.body
 
