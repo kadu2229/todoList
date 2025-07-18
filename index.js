@@ -17,12 +17,52 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
+app.get('/alltasks', async (req, res) => {
+
+  const data = await tarefas.findAll({raw: true})
+
+  res.render('alltasks', {data})
+})
+
+app.get('/updatetask/:id', async (req, res) => {
+
+  const { id } = req.params
+  
+  const data = await tarefas.findOne({
+    where: {id: id},
+    raw: true
+  })
+
+  console.log(data)
+
+  res.render('updatetask', {data: data}) // esse troço adiciona texto interativo usando `${}`
+
+})
+
 app.post('/addTask', async (req, res) => {
   const { task, description } = req.body
 
   await tarefas.create({task, description})
 
   res.redirect('/')
+})
+
+app.post('/deletetask/:id', async (req, res) => {
+  let { id, task, description } = req.params;
+
+  await tarefas.destroy({where: {id:id}})
+
+  res.redirect('/alltasks')
+
+})
+
+app.post('/updatetask/:id', async (req, res) => {
+  let { id } = req.params;
+  let { task, description } = req.body;
+
+  await tarefas.update({task, description}, {where: {id: id}})
+
+  res.redirect('/alltasks')
 })
 
 try {

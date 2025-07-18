@@ -1,0 +1,13 @@
+<div>
+  <form action="/updatetask/{{data.id}}" method="post">
+    <div>
+      <label for="task">Tarefa</label>
+      <input type="text" name="task" value="{{data.task}}" placeholder="insira sua tarefa">
+    </div>
+    <div>
+      <label for="description">descrição</label>
+      <input type="text" name="description" value="{{data.description}}" placeholder="insira sua tarefa">
+    </div>
+    <input type="submit" value="editar">
+  </form>
+</div>
