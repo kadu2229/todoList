@@ -5,6 +5,7 @@ const conection = require('./db/conection')
 
 app.engine('handlebars', hndbrs.engine())
 app.set('view engine', 'handlebars')
+app.use(express.static('public'))
 
 
 app.get('/', (req, res) => {
