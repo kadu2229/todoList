@@ -1,8 +1,11 @@
 const express = require('express');
 const hndbrs = require('express-handlebars');
 const app = express()
+
 const conection = require('./db/conection')
-const tarefas = require('./modules/tarefas')
+
+const conection = require('./db/conection')
+const tarefas = require('./modules/tarefas') 
 
 app.engine('handlebars', hndbrs.engine())
 app.set('view engine', 'handlebars')
@@ -17,6 +20,7 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
+try {
 app.get('/alltasks', async (req, res) => {
 
   const data = await tarefas.findAll({raw: true})
