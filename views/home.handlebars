@@ -1,1 +1,18 @@
-<h1>olá mundo</h1>
+<div>
+  <form method="post" action="/addTask">
+    <div class="formulario">
+      <h1>TodoList</h1>
+      <div class="formItem">
+        <input placeholder="Qual a tarefa?" type="text" name="task">
+      </div>
+      <div class="formItem">
+        <textarea placeholder="Descreva a tarefa" name="description"></textarea>
+      </div>
+    <input value="salvar" type="submit">
+    </div>
+  </form>
+
+  {{#each data}}
+    
+  {{/each}}
+</div>

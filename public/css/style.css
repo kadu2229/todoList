@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+input {
+  padding: 5px;
+  background-color: rgb(194, 194, 194);
+  border: none;
+  border-radius: 5px;
+  place
+}
+
+input::placeholder {
+  color: rgb(46, 46, 46);
+}
