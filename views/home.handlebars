@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <form method="post" action="/addTask">
     <div class="formulario">
       <h1>TodoList</h1>
@@ -8,11 +8,17 @@
       <div class="formItem">
         <textarea placeholder="Descreva a tarefa" name="description"></textarea>
       </div>
-    <input value="salvar" type="submit">
+      <input value="salvar" type="submit">
     </div>
   </form>
 
   {{#each data}}
-    
+  <form method="post" action="/deleteTask">
+    <div class="task">
+      <h4>{{this.task}}</h4>
+      <input value="excluir" type="submit">
+      <input type="hidden" name="id" value="{{this.id}}">
+    </div>
+  </form>
   {{/each}}
 </div>

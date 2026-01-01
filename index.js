@@ -13,13 +13,13 @@ app.use(express.urlencoded({
 }));
 app.use(express.json())
 app.get("/", async (req, res) => {
-  const data = await tasks.findAll({raw: true})
+  let data = await tasks.findAll({raw: true})
+  console.log(data)
   res.render("home", {data});
 });
 
 app.post('/addTask', async (req,res) => {
   const { task,description } = req.body;
-  console.log(data)
   await tasks.create({
     task,
     description
@@ -28,9 +28,11 @@ app.post('/addTask', async (req,res) => {
 })
 
 app.post('/deleteTask', async (req, res) => {
-  const data = await tasks.findAll({raw: true})
+  let { id } = req.body;
 
-
+  const task = await tasks.destroy({where:{id}});
+  console.log(task)
+  res.redirect('/')
 })
 
 const appInit = async () => {
