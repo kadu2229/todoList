@@ -14,7 +14,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 app.get("/", async (req, res) => {
   let data = await tasks.findAll({raw: true})
-  console.log(data)
+  //console.log(data)
   res.render("home", {data});
 });
 
@@ -31,7 +31,7 @@ app.post('/deleteTask', async (req, res) => {
   let { id } = req.body;
 
   const task = await tasks.destroy({where:{id}});
-  console.log(task)
+  //console.log(task)
   res.redirect('/')
 })
 
